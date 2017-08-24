@@ -36,4 +36,4 @@ TEMP/*
 SOURCE/*
 !SOURCE/readme.txt
 
-./*.sh
+_*.sh

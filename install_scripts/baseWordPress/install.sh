@@ -1,4 +1,4 @@
-cp -rf ./*.sh ../../
+cp -rf ./_*.sh ../../
 
 rm -rf ../../TEMP/baseWordPress
 git clone https://superjonbot@bitbucket.org/superjonbot/basewordpress.git ../../TEMP/baseWordPress
