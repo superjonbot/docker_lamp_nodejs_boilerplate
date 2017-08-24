@@ -1,14 +1,15 @@
 #echo "usage ./_push.sh {commit message no spaces}"
+PROJECT="baseWordPress"
 
 DATE=$(date +"%m-%d-%y")
 TIME=$(date +"%r")
 cachebuster=$(date +"%s")
 
 echo "backing up scripts"
-cp -rf *.sh install_scripts/baseWordPress
+cp -rf *.sh install_scripts/$PROJECT
 
 echo "putting project in SOURCE"
-cd TEMP/baseWordPress
+cd TEMP/$PROJECT
 mkdir -p haproxy
 mkdir -p html
 mkdir -p sql
