@@ -34,7 +34,7 @@ docker exec -d wordpressdb sh -c "mysql -ppassword wordpress < tmp/backup.sql"
 sleep 10
 open -a safari http://127.0.0.1:8000/search?lastname=obama
 open -a safari http://127.0.0.1:8000/alexa_speeches/
-open -a safari http://127.0.0.1:8000/wp/
+open -a safari http://127.0.0.1:8000/wp/wp-admin/
 
 # type the readme and show the nodeJS log
 cat readme.txt
