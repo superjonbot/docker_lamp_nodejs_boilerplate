@@ -1,17 +1,14 @@
-if [ -z "$1" ]
-
-then
-
-echo "usage ./baseWordPress_push.sh {commit message no spaces}"
-
-else
+#echo "usage ./_push.sh {commit message no spaces}"
 
 DATE=$(date +"%m-%d-%y")
 TIME=$(date +"%r")
 cachebuster=$(date +"%s")
 
-cd ../TEMP/baseWordPress
-ls
+echo "backing up scripts"
+cp -rf *.sh install_scripts/baseWordPress
+
+echo "putting project in SOURCE"
+cd TEMP/baseWordPress
 mkdir -p haproxy
 mkdir -p html
 mkdir -p sql
@@ -21,19 +18,16 @@ cp -rf ../../SOURCE/html/ html/
 cp -rf ../../SOURCE/sql/ sql/
 cp -rf ../../node_docker/node/ node/
 
-cp -rf ../../*.sh .
-
 git status
 
-echo " "
+if [ -z "$1" ]
 
-git add . && git commit -m "$1 : date:$DATE[$TIME] v.$cachebuster" && git push origin master
+then
 
-rm -rf haproxy
-rm -rf html
-rm -rf sql
-rm -rf node
+	git add . && git commit -m "$1 : date:$DATE[$TIME] v.$cachebuster" && git push origin master
 
-rm -rf ./*.sh
+else
+
+	git add . && git commit -m "AUTOCOMMIT : date:$DATE[$TIME] v.$cachebuster" && git push origin master
 
 fi
