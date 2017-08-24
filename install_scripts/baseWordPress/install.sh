@@ -1,9 +1,10 @@
 PROJECT="baseWordPress"
+REPO="https://superjonbot@bitbucket.org/superjonbot/basewordpress.git"
 
 cp -rf ./_*.sh ../../
 
 rm -rf ../../TEMP/$PROJECT
-git clone https://superjonbot@bitbucket.org/superjonbot/basewordpress.git ../../TEMP/$PROJECT
+git clone $REPO ../../TEMP/$PROJECT
 
 cd ../../TEMP/$PROJECT
 ls
