@@ -37,3 +37,4 @@ SOURCE/*
 !SOURCE/readme.txt
 
 _*.sh
+!install_scripts/_*.sh
