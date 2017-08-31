@@ -1,3 +1,25 @@
+PROJECT="aetn.ott.speeches"
+cd TEMP/$PROJECT
+git fetch --all
+git status
+
+read -p "update? " -n 1 -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+   git pull --rebase
+   git reset --hard HEAD
+   cp -rf haproxy ../../SOURCE/
+   cp -rf html ../../SOURCE/
+   cp -rf sql ../../SOURCE/
+   cp -rf agent ../../SOURCE/
+   cp -rf node ../../node_docker/
+else
+   echo "continung"
+fi
+
+cd ../..
+
 # make custom network
 docker network create --driver bridge --subnet=172.18.0.0/16 mylocalnet
 
@@ -9,7 +31,7 @@ docker run --net mylocalnet --ip="172.18.0.3" -p 8080:80 -e WORDPRESS_DB_PASSWOR
 docker run --net mylocalnet --ip="172.18.0.5" -p 8000:80 -d --name my-haproxy-container -v $(pwd)/SOURCE/haproxy:/usr/local/etc/haproxy:ro haproxy:1.7
 
 # run the node server and make the symbolic link so everything is in /SOURCE
-rm $(pwd)/SOURCE/node
+rm $(pwd)/SOURCE/node # This ok to fail
 ln -s $(pwd)/node_docker/node $(pwd)/SOURCE
 cd node_docker
 docker run --net mylocalnet --ip="172.18.0.4" --name nodeJS -d -p 3000:3000 -v $(pwd)/../SOURCE/node:/usr/src/app aenetworks/node:1.0
