@@ -14,9 +14,11 @@ mkdir -p haproxy
 mkdir -p html
 mkdir -p sql
 mkdir -p node
+mkdir -p agent
 cp -rf ../../SOURCE/haproxy/ haproxy/
 cp -rf ../../SOURCE/html/ html/
 cp -rf ../../SOURCE/sql/ sql/
+cp -rf ../../SOURCE/agent/ agent/
 cp -rf ../../node_docker/node/ node/
 
 git status

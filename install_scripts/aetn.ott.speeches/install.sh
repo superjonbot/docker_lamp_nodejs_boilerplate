@@ -11,4 +11,5 @@ ls
 cp -rf haproxy ../../SOURCE/
 cp -rf html ../../SOURCE/
 cp -rf sql ../../SOURCE/
+cp -rf agent ../../SOURCE/
 cp -rf node ../../node_docker/
