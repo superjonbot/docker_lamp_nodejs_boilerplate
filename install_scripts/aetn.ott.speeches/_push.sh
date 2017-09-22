@@ -19,18 +19,19 @@ cp -rf ../../SOURCE/haproxy/ haproxy/
 cp -rf ../../SOURCE/html/ html/
 cp -rf ../../SOURCE/sql/ sql/
 cp -rf ../../SOURCE/agent/ agent/
+cp -rf ../../SOURCE/readme.txt .
 cp -rf ../../node_docker/node/ node/
 
 git status
 
-if [ -z "$1" ]
+#if [ -z "$1" ]
 
-then
+#then
 
 	git add . && git commit -m "$1 : date:$DATE[$TIME] v.$cachebuster" && git push origin master
 
-else
+#else
 
-	git add . && git commit -m "AUTOCOMMIT : date:$DATE[$TIME] v.$cachebuster" && git push origin master
+#	git add . && git commit -m "AUTOCOMMIT : date:$DATE[$TIME] v.$cachebuster" && git push origin master
 
-fi
+#fi
