@@ -20,15 +20,15 @@ sleep 30
 ./_deleteunused.sh
 
 # refresh database from saved
-#while true; do
-#    read -p "Do you want to install the last saved database (type y if you don't know)?" yn
-#    case $yn in
-#        [Yy]* ) docker exec -d wordpressdb sh -c "mysql -ppassword wordpress < tmp/backup.sql"; break;;
-#        [Nn]* ) break;;
-#        * ) echo "Please answer yes or no.";;
-#    esac
-#done
-docker exec -d wordpressdb sh -c "mysql -ppassword wordpress < tmp/backup.sql"
+while true; do
+    read -p "Do you want to install the last saved database (type y if you don't know)?" yn
+    case $yn in
+        [Yy]* ) docker exec -d wordpressdb sh -c "mysql -ppassword wordpress < tmp/backup.sql"; break;;
+        [Nn]* ) break;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
+#docker exec -d wordpressdb sh -c "mysql -ppassword wordpress < tmp/backup.sql"
 
 # open safari for related pages
 sleep 10
